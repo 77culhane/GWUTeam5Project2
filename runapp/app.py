@@ -37,7 +37,7 @@ engine = create_engine(f"mysql://{remote_gwsis_dbuser}:{remote_gwsis_dbpwd}@{rem
 # Set up SQL Alchemy connection and classes
 Base = automap_base() # Declare a Base using `automap_base()`
 Base.prepare(engine, reflect=True) # Use the Base class to reflect the database tables
-sqlkey = Base.classes.geo_sentiment_mod_sample
+sqlkey = Base.classes.geo_sentiment_mod
 
 # Initialize Flask application
 app = Flask(__name__)

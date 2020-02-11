@@ -1,9 +1,6 @@
 import os
 
-# Heroku check
-is_heroku = False
-if 'IS_HEROKU' in os.environ:
-    is_heroku = True
+
 
 # Flask
 from flask import Flask, request, render_template
@@ -21,18 +18,18 @@ import pymysql
 import pandas as pd
 
 # Import your config
-if is_heroku == False:
-    remote_db_endpoint = 'codingbootcamp.cnm4q1bfp1uz.us-east-2.rds.amazonaws.com'
-    remote_db_port = 3306
-    remote_gwsis_dbname = 'GW_SIS'
-    remote_gwsis_dbuser = 'admin'
-    remote_gwsis_dbpwd = 'newpassword'
-else:
-    remote_db_endpoint = os.environ.get('remote_db_endpoint')
-    remote_db_port = os.environ.get('remote_db_port')
-    remote_gwsis_dbname = os.environ.get('remote_gwsis_dbname')
-    remote_gwsis_dbuser = os.environ.get('remote_gwsis_dbuser')
-    remote_gwsis_dbpwd = os.environ.get('remote_gwsis_dbpwd')
+
+#remote_db_endpoint = ''
+#remote_db_port = 0
+#remote_gwsis_dbname = ''
+#remote_gwsis_dbuser = ''
+#remote_gwsis_dbpwd = ''
+
+remote_db_endpoint = os.environ.get('remote_db_endpoint')
+remote_db_port = os.environ.get('remote_db_port')
+remote_gwsis_dbname = os.environ.get('remote_gwsis_dbname')
+remote_gwsis_dbuser = os.environ.get('remote_gwsis_dbuser')
+remote_gwsis_dbpwd = os.environ.get('remote_gwsis_dbpwd')
     
 # Configure MySQL connection and connect 
 pymysql.install_as_MySQLdb()
